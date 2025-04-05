@@ -18,41 +18,77 @@ This project builds on the work of [Baldi et al. (2014)](https://www.nature.com/
 ## Repo Structure
 
 higgs-ams-aware-classifier/
+
 ├── README.md
+
 ├── LICENSE
+
 ├── requirements.txt
-├── environment.yml               
+
+├── environment.yml       
+
 ├── .gitignore
+
 ├── data/
+
 │   ├── training.csv
+
 │   ├── test.csv
-│   └── processed/                  
+
+│   └── processed/             
+
 ├── notebooks/
+
 │   ├── 01_data_exploration.ipynb
+
 │   ├── 02_bce_baseline_dnn.ipynb
+
 │   ├── 03_shallow_nn.ipynb
+
 │   ├── 04_xgboost.ipynb
+
 │   ├── 05_ams_loss_dnn.ipynb       
+
 │   └── 06_analysis_plots.ipynb     
+
 ├── src/
+
 │   ├── models/
+
 │   │   ├── higgsnet.py
+
 │   │   ├── shallownet.py
+
 │   │   ├── ams_loss.py
+
 │   │   └── xgboost_model.py
+
 │   ├── utils/
+
 │   │   ├── metrics.py              
+
 │   │   └── plot_utils.py
+
 ├── results/
+
 │   ├── prediction_distributions/
+
 │   ├── roc_curves/
+
 │   └── ams_vs_threshold/
+
 ├── scripts/
+
 │   ├── train_dnn.py
+
 │   ├── train_xgboost.py
+
 │   └── evaluate.py
+
 ├── paper/
+
 │   └── draft.md
+
 └── setup.py                        
 
 ---
