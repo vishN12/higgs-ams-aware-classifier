@@ -8,10 +8,10 @@ This project builds on the work of [Baldi et al. (2014)](https://www.nature.com/
 
 ## Project Goals
 
-- Reproduce baseline models: shallow NN, deep NN, XGBoost
-- Implement and evaluate a custom **AMS-aware loss function**
+- Train a baseline neural network which utilizes standard binary cross-entropy loss
+- Train a neural network which utilizes AMS-aware loss with a differentiable approximation of the actual metric
 - Compare AMS-aware training vs. standard binary cross-entropy
-- Provide a fully reproducible pipeline for physics-informed ML
+- Provide a fully pipeline for training, validating, and testing physics informed models
 
 ---
 
@@ -19,8 +19,16 @@ This project builds on the work of [Baldi et al. (2014)](https://www.nature.com/
 
 This project uses the **Kaggle Higgs Boson ML Challenge** dataset:
 - `training.csv`: 250,000 labeled events with weights
-- `test.csv`: unlabeled data (not used for evaluation here)
+- `test.csv`: 550,000 unlabeled events, no weights (used to evaluate model AMS scores through Kaggle)
 
 Download it from [Kaggle](https://www.kaggle.com/competitions/higgs-boson/data).
 
 ---
+
+## Pre-processing
+
+For the most part the datasets were clean to work with since they were synthesized (based on CERN's ATLAS experiment).
+Steps taken for pre-processing:
+- Mean imputation for missing values (normally distributed data, means introduced no skewness)
+- Feature columns identified as beginning with 'DER_' or 'PRI_' (all feature cols began with either one of these prefixes)
+- Target columns identified as 'Weight' and 'Label' ('Weight' gives the significance of the event, and 'Label' is string values of either 's' or 'b', indicating signal or background event occurence)
